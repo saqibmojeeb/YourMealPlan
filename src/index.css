@@ -2,107 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Lilita+One&display=swap');
 
 @layer base {
   :root {
-    /* Fresh, health-focused palette */
-    --background: 60 20% 98%;
-    --foreground: 160 10% 15%;
+    /* Warm, food-friendly NomNom palette */
+    --background: 30 40% 98%;
+    --foreground: 25 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 160 10% 15%;
+    --card-foreground: 25 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 160 10% 15%;
+    --popover-foreground: 25 20% 15%;
 
-    /* Sage green - fresh & healthy */
-    --primary: 150 35% 45%;
+    /* Fresh green - healthy & appetizing */
+    --primary: 145 45% 42%;
     --primary-foreground: 0 0% 100%;
 
-    /* Warm cream */
-    --secondary: 40 30% 95%;
-    --secondary-foreground: 160 10% 25%;
+    /* Warm peach */
+    --secondary: 25 60% 95%;
+    --secondary-foreground: 25 30% 25%;
 
-    /* Subtle muted tones */
-    --muted: 60 15% 93%;
-    --muted-foreground: 160 8% 45%;
+    /* Soft cream tones */
+    --muted: 30 30% 93%;
+    --muted-foreground: 25 15% 45%;
 
-    /* Coral accent for actions */
-    --accent: 15 85% 60%;
+    /* Orange accent - warm & inviting */
+    --accent: 25 95% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 60 10% 88%;
-    --input: 60 10% 88%;
-    --ring: 150 35% 45%;
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 145 45% 42%;
 
-    --radius: 1rem;
+    --radius: 1.25rem;
 
     /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(150 35% 45%), hsl(160 40% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(15 85% 60%), hsl(25 90% 65%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(60 20% 98%));
+    --gradient-primary: linear-gradient(135deg, hsl(145 45% 42%), hsl(155 50% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(25 95% 55%), hsl(35 100% 60%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(30 40% 98%));
+    --gradient-peach: linear-gradient(135deg, hsl(25 60% 95%), hsl(15 70% 92%));
     
-    --shadow-soft: 0 2px 8px -2px hsl(160 10% 15% / 0.08);
-    --shadow-card: 0 4px 16px -4px hsl(160 10% 15% / 0.1);
-    --shadow-elevated: 0 8px 32px -8px hsl(160 10% 15% / 0.15);
+    --shadow-soft: 0 2px 8px -2px hsl(25 20% 15% / 0.06);
+    --shadow-card: 0 4px 20px -4px hsl(25 20% 15% / 0.08);
+    --shadow-elevated: 0 8px 32px -8px hsl(25 20% 15% / 0.12);
     
-    /* Meal category colors */
-    --meal-breakfast: 35 90% 55%;
-    --meal-lunch: 150 40% 50%;
-    --meal-dinner: 260 45% 55%;
-    --meal-snack: 15 75% 55%;
+    /* Meal category colors - warm food tones */
+    --meal-breakfast: 40 90% 50%;
+    --meal-lunch: 145 50% 45%;
+    --meal-dinner: 15 85% 55%;
+    --meal-snack: 25 80% 60%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 30 30% 98%;
+    --sidebar-foreground: 25 15% 26%;
+    --sidebar-primary: 25 20% 10%;
+    --sidebar-primary-foreground: 30 30% 98%;
+    --sidebar-accent: 30 25% 96%;
+    --sidebar-accent-foreground: 25 20% 10%;
+    --sidebar-border: 30 20% 91%;
+    --sidebar-ring: 25 95% 55%;
   }
 
   .dark {
-    --background: 160 15% 10%;
-    --foreground: 60 15% 95%;
+    --background: 25 20% 10%;
+    --foreground: 30 30% 95%;
 
-    --card: 160 12% 14%;
-    --card-foreground: 60 15% 95%;
+    --card: 25 18% 14%;
+    --card-foreground: 30 30% 95%;
 
-    --popover: 160 12% 14%;
-    --popover-foreground: 60 15% 95%;
+    --popover: 25 18% 14%;
+    --popover-foreground: 30 30% 95%;
 
-    --primary: 150 40% 55%;
-    --primary-foreground: 160 15% 10%;
+    --primary: 145 50% 50%;
+    --primary-foreground: 25 20% 10%;
 
-    --secondary: 160 10% 20%;
-    --secondary-foreground: 60 15% 90%;
+    --secondary: 25 15% 20%;
+    --secondary-foreground: 30 25% 90%;
 
-    --muted: 160 10% 18%;
-    --muted-foreground: 60 10% 60%;
+    --muted: 25 15% 18%;
+    --muted-foreground: 30 15% 60%;
 
-    --accent: 15 80% 55%;
+    --accent: 25 90% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 160 10% 22%;
-    --input: 160 10% 22%;
-    --ring: 150 40% 55%;
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 145 50% 50%;
 
-    --sidebar-background: 160 12% 12%;
-    --sidebar-foreground: 60 15% 90%;
-    --sidebar-primary: 150 40% 55%;
-    --sidebar-primary-foreground: 160 15% 10%;
-    --sidebar-accent: 160 10% 18%;
-    --sidebar-accent-foreground: 60 15% 90%;
-    --sidebar-border: 160 10% 20%;
-    --sidebar-ring: 150 40% 55%;
+    --sidebar-background: 25 18% 12%;
+    --sidebar-foreground: 30 25% 90%;
+    --sidebar-primary: 145 50% 50%;
+    --sidebar-primary-foreground: 25 20% 10%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 30 25% 90%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 25 90% 55%;
   }
 }
 
@@ -113,11 +114,11 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Nunito', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Lilita One', 'Nunito', cursive;
     @apply font-semibold tracking-tight;
   }
 }

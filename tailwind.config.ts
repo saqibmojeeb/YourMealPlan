@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Nunito', 'system-ui', 'sans-serif'],
+        serif: ['Lilita One', 'Nunito', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",

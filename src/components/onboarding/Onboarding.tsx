@@ -6,6 +6,7 @@ import { OnboardingProgress } from './OnboardingProgress';
 import { DietaryStep } from './DietaryStep';
 import { CookingTimeStep } from './CookingTimeStep';
 import { PantryStep } from './PantryStep';
+import { NomNomLogo } from '../NomNomLogo';
 
 interface OnboardingProps {
   onComplete: (preferences: UserPreferences) => void;
@@ -56,12 +57,15 @@ export const Onboarding = ({ onComplete }: OnboardingProps) => {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* Header */}
-      <header className="pt-6 pb-4">
-        <OnboardingProgress currentStep={step} totalSteps={totalSteps} />
+      <header className="pt-8 pb-4 px-4 text-center">
+        <NomNomLogo size="lg" showTagline />
+        <div className="mt-6">
+          <OnboardingProgress currentStep={step} totalSteps={totalSteps} />
+        </div>
       </header>
 
       {/* Content */}
-      <main className="flex-1 pt-8">
+      <main className="flex-1 pt-4">
         {step === 0 && (
           <DietaryStep
             selected={preferences.dietaryPreferences}
