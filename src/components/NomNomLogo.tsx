@@ -1,37 +1,76 @@
 interface NomNomLogoProps {
   size?: 'sm' | 'md' | 'lg';
   showTagline?: boolean;
+  layout?: 'horizontal' | 'stacked';
 }
 
-export const NomNomLogo = ({ size = 'md', showTagline = false }: NomNomLogoProps) => {
-  const sizeClasses = {
-    sm: 'text-xl',
-    md: 'text-2xl',
-    lg: 'text-4xl',
+const SmilingBowl = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 32 32" 
+    fill="none" 
+    className={className}
+    aria-hidden="true"
+  >
+    {/* Bowl */}
+    <path 
+      d="M4 14C4 14 4 24 16 24C28 24 28 14 28 14H4Z" 
+      className="fill-accent"
+    />
+    {/* Bowl rim */}
+    <path 
+      d="M2 12C2 10.8954 2.89543 10 4 10H28C29.1046 10 30 10.8954 30 12V14H2V12Z" 
+      className="fill-accent"
+    />
+    {/* Left eye */}
+    <circle cx="11" cy="17" r="1.5" className="fill-accent-foreground" />
+    {/* Right eye */}
+    <circle cx="21" cy="17" r="1.5" className="fill-accent-foreground" />
+    {/* Smile */}
+    <path 
+      d="M12 20C12 20 14 22 16 22C18 22 20 20 20 20" 
+      stroke="currentColor" 
+      strokeWidth="1.5" 
+      strokeLinecap="round"
+      className="stroke-accent-foreground"
+    />
+  </svg>
+);
+
+export const NomNomLogo = ({ size = 'md', showTagline = false, layout = 'horizontal' }: NomNomLogoProps) => {
+  const sizeConfig = {
+    sm: { text: 'text-xl', bowl: 'w-6 h-6', tagline: 'text-xs', gap: 'gap-1.5' },
+    md: { text: 'text-2xl', bowl: 'w-8 h-8', tagline: 'text-sm', gap: 'gap-2' },
+    lg: { text: 'text-4xl', bowl: 'w-12 h-12', tagline: 'text-base', gap: 'gap-3' },
   };
 
-  const plateSizes = {
-    sm: 'w-5 h-5 text-[10px]',
-    md: 'w-6 h-6 text-xs',
-    lg: 'w-10 h-10 text-base',
-  };
+  const config = sizeConfig[size];
 
-  const PlateO = () => (
-    <span 
-      className={`inline-flex items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/80 text-accent-foreground font-bold ${plateSizes[size]}`}
-      style={{ verticalAlign: 'middle', marginTop: '-2px' }}
-    >
-      ◡
-    </span>
-  );
+  if (layout === 'stacked') {
+    return (
+      <div className="flex flex-col items-center">
+        <SmilingBowl className={config.bowl} />
+        <h1 className={`font-serif font-bold tracking-tight text-foreground ${config.text} mt-1`}>
+          NomNom
+        </h1>
+        {showTagline && (
+          <p className={`${config.tagline} text-muted-foreground mt-1 font-medium`}>
+            Plan meals. Eat happy. 🍽️
+          </p>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col">
-      <h1 className={`font-serif font-bold tracking-tight text-foreground ${sizeClasses[size]}`}>
-        N<PlateO />mN<PlateO />m
-      </h1>
+      <div className={`flex items-center ${config.gap}`}>
+        <SmilingBowl className={config.bowl} />
+        <h1 className={`font-serif font-bold tracking-tight text-foreground ${config.text}`}>
+          NomNom
+        </h1>
+      </div>
       {showTagline && (
-        <p className="text-sm text-muted-foreground mt-1 font-medium">
+        <p className={`${config.tagline} text-muted-foreground mt-1 font-medium`}>
           Plan meals. Eat happy. 🍽️
         </p>
       )}
