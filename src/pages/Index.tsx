@@ -6,9 +6,10 @@ import { WeeklyPlanner } from '@/components/WeeklyPlanner';
 import { RecipeDetail } from '@/components/RecipeDetail';
 import { GroceryList } from '@/components/GroceryList';
 import { SettingsScreen } from '@/components/SettingsScreen';
+import { SubscriptionPricing } from '@/components/SubscriptionPricing';
 import { BottomNav } from '@/components/BottomNav';
 
-type AppTab = 'planner' | 'grocery' | 'settings';
+type AppTab = 'planner' | 'grocery' | 'pricing' | 'settings';
 
 const Index = () => {
   const [hasOnboarded, setHasOnboarded] = useState(false);
@@ -19,6 +20,7 @@ const Index = () => {
 
   const handleOnboardingComplete = (prefs: UserPreferences) => {
     updatePreferences(prefs);
+    regeneratePlan();
     setHasOnboarded(true);
   };
 
@@ -32,7 +34,6 @@ const Index = () => {
 
   return (
     <div className="flex flex-col h-screen bg-background safe-bottom">
-      {/* Main Content */}
       <main className="flex-1 overflow-hidden">
         {activeTab === 'planner' && (
           <WeeklyPlanner
@@ -45,6 +46,11 @@ const Index = () => {
         {activeTab === 'grocery' && (
           <GroceryList weekPlan={weekPlan} />
         )}
+        {activeTab === 'pricing' && (
+          <div className="flex-1 overflow-y-auto pt-6">
+            <SubscriptionPricing />
+          </div>
+        )}
         {activeTab === 'settings' && (
           <SettingsScreen
             preferences={preferences}
@@ -53,10 +59,8 @@ const Index = () => {
         )}
       </main>
 
-      {/* Bottom Navigation */}
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
 
-      {/* Recipe Detail Modal */}
       {selectedRecipe && (
         <RecipeDetail
           recipe={selectedRecipe}

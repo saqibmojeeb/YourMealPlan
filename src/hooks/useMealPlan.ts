@@ -1,14 +1,17 @@
 import { useState, useCallback } from 'react';
 import { DayPlan, Recipe, UserPreferences } from '@/types/meal';
-import { mockRecipes, getRecipesByType } from '@/data/mockRecipes';
+import { getRecipesByType, getFilteredRecipesByType } from '@/data/mockRecipes';
 import { addDays, format, startOfWeek } from 'date-fns';
 
-const generateRandomMeal = (type: 'breakfast' | 'lunch' | 'dinner' | 'snack'): Recipe => {
-  const recipes = getRecipesByType(type);
+const generateRandomMeal = (type: 'breakfast' | 'lunch' | 'dinner' | 'snack', preferences: string[] = []): Recipe | undefined => {
+  const recipes = preferences.length > 0 
+    ? getFilteredRecipesByType(type, preferences)
+    : getRecipesByType(type);
+  if (recipes.length === 0) return undefined;
   return recipes[Math.floor(Math.random() * recipes.length)];
 };
 
-const generateWeekPlan = (): DayPlan[] => {
+const generateWeekPlan = (preferences: string[] = []): DayPlan[] => {
   const start = startOfWeek(new Date(), { weekStartsOn: 1 });
   const plan: DayPlan[] = [];
 
@@ -17,10 +20,9 @@ const generateWeekPlan = (): DayPlan[] => {
     plan.push({
       date: format(date, 'yyyy-MM-dd'),
       meals: {
-        breakfast: generateRandomMeal('breakfast'),
-        lunch: generateRandomMeal('lunch'),
-        dinner: generateRandomMeal('dinner'),
-        snack: Math.random() > 0.5 ? generateRandomMeal('snack') : undefined,
+        breakfast: generateRandomMeal('breakfast', preferences),
+        lunch: generateRandomMeal('lunch', preferences),
+        dinner: generateRandomMeal('dinner', preferences),
       },
     });
   }
@@ -29,22 +31,25 @@ const generateWeekPlan = (): DayPlan[] => {
 };
 
 export const useMealPlan = () => {
-  const [weekPlan, setWeekPlan] = useState<DayPlan[]>(generateWeekPlan);
   const [preferences, setPreferences] = useState<UserPreferences>({
     dietaryPreferences: [],
     cookingTime: '30',
     pantryItems: [],
     servings: 2,
   });
+  const [weekPlan, setWeekPlan] = useState<DayPlan[]>(() => generateWeekPlan());
 
   const regeneratePlan = useCallback(() => {
-    setWeekPlan(generateWeekPlan());
-  }, []);
+    setWeekPlan(generateWeekPlan(preferences.dietaryPreferences));
+  }, [preferences.dietaryPreferences]);
 
   const swapMeal = useCallback((dayIndex: number, mealType: keyof DayPlan['meals']) => {
     setWeekPlan(prev => {
       const newPlan = [...prev];
-      const newMeal = generateRandomMeal(mealType as 'breakfast' | 'lunch' | 'dinner' | 'snack');
+      const newMeal = generateRandomMeal(
+        mealType as 'breakfast' | 'lunch' | 'dinner' | 'snack',
+        preferences.dietaryPreferences
+      );
       newPlan[dayIndex] = {
         ...newPlan[dayIndex],
         meals: {
@@ -54,10 +59,13 @@ export const useMealPlan = () => {
       };
       return newPlan;
     });
-  }, []);
+  }, [preferences.dietaryPreferences]);
 
   const updatePreferences = useCallback((newPrefs: Partial<UserPreferences>) => {
-    setPreferences(prev => ({ ...prev, ...newPrefs }));
+    setPreferences(prev => {
+      const updated = { ...prev, ...newPrefs };
+      return updated;
+    });
   }, []);
 
   return {

@@ -2,7 +2,7 @@ import { RefreshCw } from 'lucide-react';
 import { DayPlan, Recipe } from '@/types/meal';
 import { DayColumn } from './DayColumn';
 import { Button } from '@/components/ui/button';
-import { NomNomLogo } from './NomNomLogo';
+import { YourMealPlanLogo } from './NomNomLogo';
 
 interface WeeklyPlannerProps {
   weekPlan: DayPlan[];
@@ -21,7 +21,7 @@ export const WeeklyPlanner = ({
     <div className="flex flex-col h-full">
       <header className="px-4 pt-6 pb-4">
         <div className="flex items-center justify-between">
-          <NomNomLogo size="md" showTagline />
+          <YourMealPlanLogo size="md" showTagline />
           <Button
             variant="outline"
             size="sm"

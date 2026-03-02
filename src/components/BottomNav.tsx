@@ -1,14 +1,15 @@
-import { CalendarDays, ListChecks, Settings, ChefHat } from 'lucide-react';
+import { CalendarDays, ListChecks, Settings, CreditCard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface BottomNavProps {
-  activeTab: 'planner' | 'grocery' | 'settings';
-  onTabChange: (tab: 'planner' | 'grocery' | 'settings') => void;
+  activeTab: 'planner' | 'grocery' | 'pricing' | 'settings';
+  onTabChange: (tab: 'planner' | 'grocery' | 'pricing' | 'settings') => void;
 }
 
 const navItems = [
   { id: 'planner' as const, icon: CalendarDays, label: 'Planner' },
   { id: 'grocery' as const, icon: ListChecks, label: 'Grocery' },
+  { id: 'pricing' as const, icon: CreditCard, label: 'Plans' },
   { id: 'settings' as const, icon: Settings, label: 'Settings' },
 ];
 
