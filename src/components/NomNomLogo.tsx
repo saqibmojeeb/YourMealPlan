@@ -36,7 +36,7 @@ const SmilingBowl = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export const NomNomLogo = ({ size = 'md', showTagline = false, layout = 'horizontal' }: NomNomLogoProps) => {
+export const YourMealPlanLogo = ({ size = 'md', showTagline = false, layout = 'horizontal' }: NomNomLogoProps) => {
   const sizeConfig = {
     sm: { text: 'text-xl', bowl: 'w-6 h-6', tagline: 'text-xs', gap: 'gap-1.5' },
     md: { text: 'text-2xl', bowl: 'w-8 h-8', tagline: 'text-sm', gap: 'gap-2' },
@@ -50,7 +50,7 @@ export const NomNomLogo = ({ size = 'md', showTagline = false, layout = 'horizon
       <div className="flex flex-col items-center">
         <SmilingBowl className={config.bowl} />
         <h1 className={`font-serif font-bold tracking-tight text-foreground ${config.text} mt-1`}>
-          NomNom
+          YourMealPlan
         </h1>
         {showTagline && (
           <p className={`${config.tagline} text-muted-foreground mt-1 font-medium`}>
@@ -66,7 +66,7 @@ export const NomNomLogo = ({ size = 'md', showTagline = false, layout = 'horizon
       <div className={`flex items-center ${config.gap}`}>
         <SmilingBowl className={config.bowl} />
         <h1 className={`font-serif font-bold tracking-tight text-foreground ${config.text}`}>
-          NomNom
+          YourMealPlan
         </h1>
       </div>
       {showTagline && (
@@ -77,3 +77,5 @@ export const NomNomLogo = ({ size = 'md', showTagline = false, layout = 'horizon
     </div>
   );
 };
+
+export const NomNomLogo = YourMealPlanLogo;

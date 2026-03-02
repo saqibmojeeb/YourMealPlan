@@ -113,7 +113,7 @@ export const SettingsScreen = ({ preferences, onResetOnboarding }: SettingsScree
 
         {/* Version */}
         <p className="text-center text-sm text-muted-foreground mt-8">
-          MealPlan Pro v1.0.0
+          YourMealPlan v1.0.0
         </p>
       </div>
     </div>
