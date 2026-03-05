@@ -36,6 +36,62 @@ Users can preview a weekly meal plan and subscribe to generate personalized meal
 - 3 Month Plan – ₹29  
 - Yearly Plan – ₹89
 
+## Product Walkthrough
+Step 1 — Select Dietary Preferences
+
+Users begin by choosing their dietary preferences.
+The system supports multiple diet types such as Vegetarian, Vegan, Gluten-Free, Dairy-Free, Keto, and Mediterranean.
+
+Step 2 — Choose Cooking Time
+
+Users select how much time they want to spend cooking.
+The app then suggests recipes that match the selected cooking time.
+
+Options include:
+
+15 minutes – quick meals
+30 minutes – balanced cooking time
+45 minutes – more variety
+60 minutes – weekend cooking
+
+Step 3 — Add Pantry Ingredients
+
+Users can add ingredients they already have at home.
+The planner prioritizes recipes that use these ingredients to reduce food waste and simplify grocery planning.
+
+Step 4 — Weekly Meal Plan Generation
+
+Based on the user's preferences, available time, and pantry ingredients, the system generates a balanced weekly meal plan including:
+
+Breakfast
+Lunch
+Dinner
+
+Each meal includes cooking time and calorie estimates.
+
+Step 5 — Recipe Details
+
+Each meal can be opened to view detailed information including:
+
+Ingredients list
+Cooking instructions
+Preparation time
+Calorie information
+Serving size
+
+Step 6 — Non-Vegetarian Recipe Example
+
+The planner also supports non-vegetarian meal plans with balanced nutrition and step-by-step cooking instructions.
+
+🚀 Future Improvements
+
+Possible improvements for the product:
+Grocery list auto-generation
+Nutrition tracking
+AI-based meal recommendations
+Mobile responsive optimization
+Recipe personalization based on fitness goals
+
 ## Project Status
 
 This project is a **portfolio prototype** built for learning and demonstration purposes.
@@ -45,3 +101,4 @@ All payments are running in **Stripe Test Mode**.
 ## Author
 
 **Saqib Mojeeb**
+Product & Operations enthusiast exploring product development through hands-on projects.
