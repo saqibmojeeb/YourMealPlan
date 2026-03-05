@@ -1,73 +1,47 @@
-# Welcome to your Lovable project
+# YourMealPlan
 
-## Project info
+YourMealPlan is a smart weekly meal planning web app that helps users explore balanced meal plans based on dietary preferences.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Users can preview a weekly meal plan and subscribe to generate personalized meal plans.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Weekly meal preview
+- Diet preference filtering (Vegetarian, Vegan, Gluten-Free, Keto, etc.)
+- Personalized meal planning
+- Subscription-based access
+- Stripe integration (Test Mode)
+- Secure authentication using Supabase
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
 - React
-- shadcn-ui
+- Vite
 - Tailwind CSS
+- Supabase (Authentication & Database)
+- Stripe (Subscription payments)
+- Lovable (AI development platform)
 
-## How can I deploy this project?
+## How It Works
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+1. Users can preview a sample weekly meal plan without signing up.
+2. To generate personalized meal plans, users need to create an account.
+3. Users can subscribe to unlock full meal planning features.
+4. Payments are currently configured in **Stripe Test Mode**, so no real money is charged.
 
-## Can I connect a custom domain to my Lovable project?
+## Pricing (Test Mode)
 
-Yes, you can!
+- Weekly Plan – ₹9/week  
+- Monthly Plan – ₹14/month  
+- 3 Month Plan – ₹29  
+- Yearly Plan – ₹89
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Project Status
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is a **portfolio prototype** built for learning and demonstration purposes.
+
+All payments are running in **Stripe Test Mode**.
+
+## Author
+
+**Saqib Mojeeb**
