@@ -41,6 +41,7 @@ Step 1 — Select Dietary Preferences
 
 Users begin by choosing their dietary preferences.
 The system supports multiple diet types such as Vegetarian, Vegan, Gluten-Free, Dairy-Free, Keto, and Mediterranean.
+![Dietary Preferences](step1-dietary-preferences.png)
 
 Step 2 — Choose Cooking Time
 
@@ -48,16 +49,17 @@ Users select how much time they want to spend cooking.
 The app then suggests recipes that match the selected cooking time.
 
 Options include:
-
 15 minutes – quick meals
 30 minutes – balanced cooking time
 45 minutes – more variety
 60 minutes – weekend cooking
+![Cooking Time](step2-cooking-time.png)
 
 Step 3 — Add Pantry Ingredients
 
 Users can add ingredients they already have at home.
 The planner prioritizes recipes that use these ingredients to reduce food waste and simplify grocery planning.
+![Pantry Ingredients](step3-pantry-ingredients.png)
 
 Step 4 — Weekly Meal Plan Generation
 
@@ -66,8 +68,8 @@ Based on the user's preferences, available time, and pantry ingredients, the sys
 Breakfast
 Lunch
 Dinner
-
 Each meal includes cooking time and calorie estimates.
+![Weekly Meal Plan](step4-weekly-meal-plan.png)
 
 Step 5 — Recipe Details
 
@@ -78,10 +80,10 @@ Cooking instructions
 Preparation time
 Calorie information
 Serving size
+![Recipe Details NonVeg](step5-recipe-details-nonveg.png)
+![Recipe Details Veg](step5-recipe-details-veg.png)
 
-Step 6 — Non-Vegetarian Recipe Example
-
-The planner also supports non-vegetarian meal plans with balanced nutrition and step-by-step cooking instructions.
+The planner supports veg and non-vegetarian meal plans with balanced nutrition and step-by-step cooking instructions.
 
 🚀 Future Improvements
 
