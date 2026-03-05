@@ -41,6 +41,17 @@ Users can:
 - Stripe (Subscription Payments)
 - Lovable (AI-assisted development)
 
+## ⚙️ Installation
+
+1. Clone the repository
+git clone https://github.com/saqibmojeeb/planyourplate.git
+
+2. Install dependencies
+npm install
+
+3. Start the development server
+npm run dev
+
 ## 📖 How It Works
 
 1. Users sign up or log in to the platform.
