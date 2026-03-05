@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Recipe, UserPreferences } from '@/types/meal';
 import { useMealPlan } from '@/hooks/useMealPlan';
+import { useAuth } from '@/contexts/AuthContext';
 import { Onboarding } from '@/components/onboarding/Onboarding';
 import { WeeklyPlanner } from '@/components/WeeklyPlanner';
 import { RecipeDetail } from '@/components/RecipeDetail';
@@ -8,15 +10,36 @@ import { GroceryList } from '@/components/GroceryList';
 import { SettingsScreen } from '@/components/SettingsScreen';
 import { SubscriptionPricing } from '@/components/SubscriptionPricing';
 import { BottomNav } from '@/components/BottomNav';
+import { toast } from 'sonner';
 
 type AppTab = 'planner' | 'grocery' | 'pricing' | 'settings';
 
 const Index = () => {
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
   const [hasOnboarded, setHasOnboarded] = useState(false);
   const [activeTab, setActiveTab] = useState<AppTab>('planner');
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   
   const { weekPlan, preferences, regeneratePlan, swapMeal, updatePreferences } = useMealPlan();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate('/auth');
+    }
+  }, [user, loading, navigate]);
+
+  // Check for checkout result in URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('checkout') === 'success') {
+      toast.success('Subscription activated! 🎉');
+      window.history.replaceState({}, '', '/');
+    } else if (params.get('checkout') === 'cancel') {
+      toast.info('Checkout cancelled.');
+      window.history.replaceState({}, '', '/');
+    }
+  }, []);
 
   const handleOnboardingComplete = (prefs: UserPreferences) => {
     updatePreferences(prefs);
@@ -27,6 +50,16 @@ const Index = () => {
   const handleResetOnboarding = () => {
     setHasOnboarded(false);
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-background">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+      </div>
+    );
+  }
+
+  if (!user) return null;
 
   if (!hasOnboarded) {
     return <Onboarding onComplete={handleOnboardingComplete} />;
