@@ -47,7 +47,7 @@ export const SettingsScreen = ({ preferences, onResetOnboarding }: SettingsScree
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     toast.success('Signed out');
-    navigate('/auth');
+    navigate('/');
   };
 
   return (

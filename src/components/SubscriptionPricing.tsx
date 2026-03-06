@@ -17,37 +17,29 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    tier: 'starter',
-    description: 'Perfect to get started',
-    features: [
-      'Weekly meal plans',
-      'Basic grocery list',
-      'Up to 2 dietary filters',
-      'Email support',
-    ],
+    tier: 'weekly',
+    description: 'Try it out for a week',
+    features: ['7-day meal plan', 'Basic grocery list', 'Email support'],
   },
   {
-    tier: 'pro',
-    description: 'Most popular for busy pros',
-    features: [
-      'Everything in Starter',
-      'Unlimited dietary filters',
-      'Custom meal swaps',
-      'Nutritional breakdown',
-      'Priority support',
-    ],
+    tier: 'monthly',
+    description: 'Best value for individuals',
+    features: ['Weekly meal plans', 'Custom meal swaps', 'Grocery list', 'Nutritional info'],
     highlighted: true,
   },
   {
-    tier: 'elite',
-    description: 'For serious health goals',
+    tier: 'quarterly',
+    description: 'Save more over 3 months',
+    features: ['Everything in Monthly', 'Unlimited dietary filters', 'Priority support'],
+  },
+  {
+    tier: 'yearly',
+    description: 'Best deal — save over 60%',
     features: [
-      'Everything in Pro',
-      'AI-powered meal suggestions',
-      'Family meal planning (up to 6)',
-      'Grocery delivery integration',
+      'Everything in 3 Month',
+      'AI meal suggestions',
+      'Family planning (up to 6)',
       'Personal nutrition coach',
-      '1-on-1 onboarding call',
     ],
   },
 ];
@@ -144,7 +136,7 @@ export const SubscriptionPricing = () => {
               )}
               <div className="flex items-baseline gap-1 mb-1">
                 <span className="text-3xl font-bold text-foreground">{config.price}</span>
-                <span className="text-muted-foreground text-sm">/month</span>
+                <span className="text-muted-foreground text-sm">/{config.interval}</span>
               </div>
               <h3 className="text-lg font-semibold text-foreground">{config.name}</h3>
               <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
@@ -179,7 +171,7 @@ export const SubscriptionPricing = () => {
                   {loadingTier === plan.tier ? (
                     <Loader2 className="w-4 h-4 animate-spin mr-2" />
                   ) : null}
-                  Subscribe to {config.name}
+                  Get {config.name}
                 </Button>
               )}
             </div>
@@ -188,7 +180,7 @@ export const SubscriptionPricing = () => {
       </div>
 
       <p className="text-xs text-muted-foreground text-center mt-6 leading-relaxed">
-        All subscriptions auto-renew monthly. You can cancel anytime from your account settings. No hidden fees.
+        All subscriptions auto-renew. Cancel anytime. Stripe test mode — no real charges.
       </p>
     </div>
   );
