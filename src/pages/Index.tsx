@@ -15,7 +15,7 @@ import { toast } from 'sonner';
 type AppTab = 'planner' | 'grocery' | 'pricing' | 'settings';
 
 const Index = () => {
-  const { user, loading } = useAuth();
+  const { user, loading, subscribed } = useAuth();
   const navigate = useNavigate();
   const [hasOnboarded, setHasOnboarded] = useState(false);
   const [activeTab, setActiveTab] = useState<AppTab>('planner');
@@ -34,10 +34,10 @@ const Index = () => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('checkout') === 'success') {
       toast.success('Subscription activated! 🎉');
-      window.history.replaceState({}, '', '/');
+      window.history.replaceState({}, '', '/app');
     } else if (params.get('checkout') === 'cancel') {
       toast.info('Checkout cancelled.');
-      window.history.replaceState({}, '', '/');
+      window.history.replaceState({}, '', '/app');
     }
   }, []);
 
@@ -60,6 +60,21 @@ const Index = () => {
   }
 
   if (!user) return null;
+
+  // Show pricing if logged in but not subscribed and hasn't onboarded
+  if (!subscribed && !hasOnboarded) {
+    return (
+      <div className="min-h-screen bg-background">
+        <div className="pt-8 max-w-lg mx-auto">
+          <div className="text-center mb-4 px-4">
+            <h1 className="text-xl font-serif font-bold text-foreground">Welcome! Choose a plan to get started</h1>
+            <p className="text-sm text-muted-foreground mt-1">Subscribe to unlock personalized meal planning.</p>
+          </div>
+          <SubscriptionPricing />
+        </div>
+      </div>
+    );
+  }
 
   if (!hasOnboarded) {
     return <Onboarding onComplete={handleOnboardingComplete} />;

@@ -1,25 +1,36 @@
-// Stripe product/price mappings
+// Stripe product/price mappings — test mode
 export const SUBSCRIPTION_TIERS = {
-  starter: {
-    name: 'Starter',
-    price_id: 'price_1T7YDxBo9Oi9e7mrPJkASctC',
-    product_id: 'prod_U5jhNscXgXiAIc',
-    price: '₹199',
-    priceAmount: 199,
+  weekly: {
+    name: 'Weekly',
+    price_id: 'price_weekly_test',
+    product_id: 'prod_weekly_test',
+    price: '₹9',
+    priceAmount: 9,
+    interval: 'week',
   },
-  pro: {
-    name: 'Pro',
-    price_id: 'price_1T7YDyBo9Oi9e7mrWfEU3rU5',
-    product_id: 'prod_U5jh1NinfJ7QoR',
-    price: '₹499',
-    priceAmount: 499,
+  monthly: {
+    name: 'Monthly',
+    price_id: 'price_monthly_test',
+    product_id: 'prod_monthly_test',
+    price: '₹14',
+    priceAmount: 14,
+    interval: 'month',
   },
-  elite: {
-    name: 'Elite',
-    price_id: 'price_1T7YDyBo9Oi9e7mrih9eZSW4',
-    product_id: 'prod_U5jhFaFumEk2Bq',
-    price: '₹999',
-    priceAmount: 999,
+  quarterly: {
+    name: '3 Month',
+    price_id: 'price_quarterly_test',
+    product_id: 'prod_quarterly_test',
+    price: '₹29',
+    priceAmount: 29,
+    interval: '3 months',
+  },
+  yearly: {
+    name: 'Yearly',
+    price_id: 'price_yearly_test',
+    product_id: 'prod_yearly_test',
+    price: '₹89',
+    priceAmount: 89,
+    interval: 'year',
   },
 } as const;
 
