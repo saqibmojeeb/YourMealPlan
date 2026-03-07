@@ -5,6 +5,8 @@
 ![Stripe](https://img.shields.io/badge/Stripe-Payments-blueviolet)
 
 # YourMealPlan
+## 🌐 Live Demo 
+https://yourmealplan.lovable.app/
 
 Plan meals. Eat better. Save time.
 
