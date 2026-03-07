@@ -8,7 +8,7 @@ const Preview = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const handleCta = () => navigate(user ? '/app' : '/auth');
+  const handleCta = () => navigate('/plan');
 
   return (
     <div className="min-h-screen bg-background">

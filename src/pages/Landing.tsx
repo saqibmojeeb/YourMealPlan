@@ -10,11 +10,7 @@ const Landing = () => {
   const { user } = useAuth();
 
   const handleStartPlan = () => {
-    if (user) {
-      navigate('/app');
-    } else {
-      navigate('/auth');
-    }
+    navigate('/plan');
   };
 
   return (
