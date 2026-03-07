@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 
 const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/preview', label: 'Weekly Plan' },
   { to: '/pricing', label: 'Pricing' },
 ];
 
